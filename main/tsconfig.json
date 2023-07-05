@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2021",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ES2021"],
+    "sourceMap": true,
+    "outDir": "./scripts",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "compileOnSave": false
+}

@@ -1,0 +1,75 @@
+{
+      "text": [
+        {
+          "before": "生きがいい",
+          "after": "いきがいい"
+        },
+        {
+          "before": "大掃除",
+          "after": "おおそうじ"
+        },
+        {
+          "before": "YouTube",
+          "after": "ゆーちゅーぶ"
+        },
+        {
+          "before": "youtube",
+          "after": "ゆーちゅーぶ"
+        },
+        {
+          "before": "bot",
+          "after": "ボット"
+        },
+        {
+          "before": "Bot",
+          "after": "ボット"
+        },
+        {
+          "before": "楽そう",
+          "after": "らくそう"
+        },
+        {
+          "before": "discord",
+          "after": "でぃすこーど"
+        },
+        {
+          "before": "Discord",
+          "after": "でぃすこーど"
+        },
+        {
+          "before": "一択",
+          "after": "いったく"
+        }
+      ],
+      "regex": [
+        {
+          "before": "w+",
+          "after": "わら"
+        },{
+          "before": "<@!\\d+>",
+          "after": ""
+        },{
+          "before": "<#\\d+>",
+          "after": ""
+        },{
+          "before": "<@\\d+>",
+          "after": ""
+        },{
+          "before": "<@&\\d+>",
+          "after": ""
+        },{
+          "before": "<:\\w+:\\d+>",
+          "after": ""
+        },{
+          "before": "<a:\\w+:\\d+>",
+          "after": ""
+        },{
+          "before": "<t:\\d+>",
+          "after": ""
+        },{
+          "before": "<t:\\d+:.>",
+          "after": ""
+        }
+      ]
+
+  }
