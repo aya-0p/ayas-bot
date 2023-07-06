@@ -13,7 +13,7 @@ let log: boolean,
 
 app.listen(port, function () {
   console.log("Server Started");
-  exec("gnome-terminal --tab --working-directory=../log -- node . --enable-source-maps");
+  exec(`gnome-terminal --tab --working-directory=${env.project.rootDirPath}/log -- node . --enable-source-maps`);
 });
 app.use(bodyParser.json());
 
@@ -23,7 +23,7 @@ app.get("/start/log", async (req, res, next) => {
     log = true;
   }
   res.send("ok");
-  exec("gnome-terminal --tab --working-directory=../main -- node . --enable-source-maps");
+  exec(`gnome-terminal --tab --working-directory=${env.project.rootDirPath}/main -- node ./scripts/server.js --enable-source-maps`);
   const logServer = axios.create({
     baseURL: `http://localhost:${env.project.ports.log}`,
     proxy: false,
@@ -78,7 +78,7 @@ app.get("/start/main", (req, res) => {
             });
           main0 = false;
           exec(
-            "gnome-terminal --tab --working-directory=../main -- node . --enable-source-maps"
+            `gnome-terminal --tab --working-directory=${env.project.rootDirPath}/main -- node ./scripts/server.js --enable-source-maps`
           );
         }
       });
@@ -108,7 +108,7 @@ const logcheck = () => {
         if (log_c === 10) {
           console.log("Log server has stoped!");
           log0 = false;
-          exec("gnome-terminal --tab --working-directory=../log -- node . --enable-source-maps");
+          exec(`gnome-terminal --tab --working-directory=${env.project.rootDirPath}/log -- node . --enable-source-maps`);
         }
       });
   });

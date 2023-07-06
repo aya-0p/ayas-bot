@@ -1,7 +1,6 @@
 import { Client, Options, GatewayIntentBits } from "discord.js";
 import * as log from "./scripts/log";
 import { env } from "../../env";
-import init from "./initialization";
 
 const client = new Client({
   intents: [
@@ -26,6 +25,7 @@ const client = new Client({
 });
 export default client;
 
+import init from "./initialization";
 client.on("ready", init);
 
 process.on("unhandledRejection", (reason) => log.error(reason));

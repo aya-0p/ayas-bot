@@ -129,3 +129,4 @@ dist
 # custom
 control/server.js
 voicevox/build
+main/src/addons
