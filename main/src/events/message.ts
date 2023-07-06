@@ -106,7 +106,7 @@ const getMessageFromUrl = (message: Message): Promise<Array<Message<true>>> =>
           .fetch(messageId)
           .catch(() => {});
         if (!fetchedMessage) continue;
-        messages.push(message);
+        messages.push(fetchedMessage);
       }
     }
     resolve(messages);
