@@ -1,7 +1,8 @@
-const voicevox = require("bindings")("voicevox");
-module.exports.voicevox = (text, speakerId, options) =>
+import bindings from "voicevox";
+const voicevoxCore = bindings("voicevox");
+export const voicevox = (text, speakerId, options) =>
   new Promise((resolve, reject) => {
-    const audioQueryResult = voicevox.audioQuery(text, speakerId);
+    const audioQueryResult = voicevoxCore.audioQuery(text, speakerId);
     if (!audioQueryResult.error) {
       const data = JSON.parse(audioQueryResult.data);
       data.speed_scale = options?.speed ?? 1;
@@ -10,7 +11,7 @@ module.exports.voicevox = (text, speakerId, options) =>
       data.volume_scale = options?.volume ?? 1;
       data.pre_phoneme_length = 0;
       data.post_phoneme_length = 0;
-      const synthesisResult = voicevox.synthesis(
+      const synthesisResult = voicevoxCore.synthesis(
         JSON.stringify(data),
         speakerId
       );
@@ -18,6 +19,6 @@ module.exports.voicevox = (text, speakerId, options) =>
       else reject(synthesisResult.error);
     } else reject(audioQueryResult.error);
   });
-module.exports.init = (dir) => {
-  voicevox.initialize(dir);
-}
+export const init = (dir) => {
+  voicevoxCore.initialize(dir);
+};

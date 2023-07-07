@@ -8,6 +8,10 @@
   },
   "author": "aya-0p",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
   "bugs": {
     "url": "https://github.com/aya-0p/ayas-bot/issues"
   },
