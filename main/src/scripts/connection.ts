@@ -7,11 +7,11 @@ import {
   VoiceConnection,
 } from "@discordjs/voice";
 import { Guild, Snowflake, TextBasedChannel, VoiceChannel } from "discord.js";
-import * as log from "./log";
-import addonLog from "../addons";
+import * as log from "./log.js";
+import addonLog from "../addons/index.js";
 import { Readable } from "stream";
 import path from "path";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 
 export const voiceConnectionMap: Map<Snowflake, VCs> = new Map();
 

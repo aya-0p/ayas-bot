@@ -1,7 +1,7 @@
-import { Settings, Voice, VoiceSettings } from "../scripts/settings";
+import { Settings, Voice, VoiceSettings } from "../scripts/settings.js";
 import sqlite from "sqlite3";
 import { Snowflake } from "discord.js";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 const databasePath = env.main.database.settings;
 const db = new sqlite.Database(databasePath);
 export const setSettingsDB = (

@@ -6,10 +6,10 @@ import {
   TextInputBuilder,
   TextInputStyle,
 } from "discord.js";
-import * as log from "../scripts/log";
-import addonLog from "../addons";
-import getSettings from "../scripts/settings";
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
+import * as log from "../scripts/log.js";
+import addonLog from "../addons/index.js";
+import getSettings from "../scripts/settings.js";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 
 export default async (interaction: ChatInputGuildCommandInteraction) => {
   const guild = interaction.guild;

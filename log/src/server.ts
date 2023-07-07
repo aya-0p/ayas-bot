@@ -10,10 +10,9 @@ import {
 import express from "express";
 import * as bodyParser from "body-parser";
 import moment from "moment";
-import * as dotenv from "dotenv";
 import schedule from "node-schedule";
 import axios from "axios";
-import { env } from "../../env";
+import { env } from "../../env/index.js";
 const receivedFromGuild = new Map<string | undefined, string>();
 env.log.channels.forEach((datas) =>
   receivedFromGuild.set(datas.receiveId, datas.sendChannelId)
@@ -27,8 +26,7 @@ const client = new Client({
   ],
 });
 const app = express();
-dotenv.config();
-client.login(process.env.token);
+client.login(env.log.discordToken);
 const controlServer = axios.create({
   baseURL: `http://localhost:${env.project.ports.control}`,
   proxy: false,

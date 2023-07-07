@@ -2,7 +2,7 @@ import { Snowflake } from "discord.js";
 import * as fs from "fs-extra";
 import schedule from "node-schedule";
 import path from "node:path";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 
 const reply_o: Array<ObjectReply> = fs.readJSONSync(
   path.join(env.project.rootDirPath, "main/other/replys.json")

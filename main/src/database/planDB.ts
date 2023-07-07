@@ -1,10 +1,10 @@
-import { getDateBefore, Plan } from "../commands/plan";
+import { getDateBefore, Plan } from "../commands/plan.js";
 import sqlite from "sqlite3";
 import moment from "moment";
-import client from "../server";
-import { getTextBasedChannel } from "../scripts/utility";
+import client from "../server.js";
+import { getTextBasedChannel } from "../scripts/utility.js";
 import { Collection } from "discord.js";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 const databasePath = env.main.database.plan;
 const db = new sqlite.Database(databasePath);
 export const setPlan = (plan: Plan): Promise<void> =>

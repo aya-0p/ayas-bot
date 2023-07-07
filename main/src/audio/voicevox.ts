@@ -1,5 +1,5 @@
-import { voicevox, init } from "../../../voicevox";
-import { env } from "../../../env";
+import { voicevox, init } from "../../../voicevox/index.js";
+import { env } from "../../../env/index.js";
 init(env.main.voicevox.openjtalkDir);
 process.on("message", (param: any) => {
   voicevox(param.text, param.id, {

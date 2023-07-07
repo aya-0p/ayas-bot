@@ -1,8 +1,8 @@
 import { fork } from "child_process";
-import { env } from "../../../env";
-import { setVoice } from "../database/voiceDB";
+import { env } from "../../../env/index.js";
+import { setVoice } from "../database/voiceDB.js";
 import path from "path";
-import * as log from "../scripts/log";
+import * as log from "../scripts/log.js";
 
 const voicevox = fork(
   path.join(env.project.rootDirPath, "main/scripts/audio/voicevox.js")
