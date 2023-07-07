@@ -1,8 +1,8 @@
-import client from "../server.js";
 import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 import {
   Channel,
   ChatInputCommandInteraction,
+  Client,
   Collection,
   Guild,
   GuildAuditLogsEntry,
@@ -11,7 +11,6 @@ import {
   User,
 } from "discord.js";
 import { VCs } from "../scripts/connection.js";
-client.on("ready", async (client) => {});
 export default {
   commands: {
     disconnect: {
@@ -114,7 +113,7 @@ export default {
 };
 export const onVoiceConnectionEstablished = (voiceConnection: VCs) => {};
 
-export const initialize = async () => {};
+export const initialize = async (client: Client<true>) => {};
 
 export const datas: Datas = {
   guilds: new Collection(),

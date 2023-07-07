@@ -1,7 +1,7 @@
 import { getDateBefore, Plan } from "../commands/plan.js";
 import sqlite from "sqlite3";
 import moment from "moment";
-import client from "../server.js";
+import { client } from "../server.js";
 import { getTextBasedChannel } from "../scripts/utility.js";
 import { Collection } from "discord.js";
 import { env } from "../../../env/index.js";

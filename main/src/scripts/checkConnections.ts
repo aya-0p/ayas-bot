@@ -1,5 +1,5 @@
 import schedule from "node-schedule";
-import client from "../server.js";
+import { client } from "../server.js";
 import { voiceConnectionMap, playNothing } from "./connection.js";
 import * as log from "./log.js";
 import addonLog from "../addons/index.js";

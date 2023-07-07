@@ -1,4 +1,4 @@
-import bindings from "voicevox";
+import bindings from "bindings";
 const voicevoxCore = bindings("voicevox");
 export const voicevox = (text, speakerId, options) =>
   new Promise((resolve, reject) => {

@@ -1,4 +1,4 @@
-import client from "../server.js";
+import { client } from "../server.js";
 import * as log from "../scripts/log.js";
 import getReply from "../scripts/reply.js";
 import { read } from "../scripts/readMessage.js";
