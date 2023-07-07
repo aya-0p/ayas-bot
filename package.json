@@ -1,6 +1,6 @@
 {
   "name": "ayas-bot",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "scripts": {
     "install": "cd control && pnpm i && cd ../log && pnpm i && cd ../main && pnpm i && cd ../voicevox && pnpm i && node-gyp rebuild",
     "start": "cd control && tsc && cd ../log && tsc && cd ../main && tsc && cd ../control && pnpm start"

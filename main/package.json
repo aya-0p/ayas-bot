@@ -1,6 +1,5 @@
 {
   "name": "ayas-bot_main",
-  "version": "7.0.0",
   "description": "",
   "type": "module",
   "main": "scripts/server.js",
