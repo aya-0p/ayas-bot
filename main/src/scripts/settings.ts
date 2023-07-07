@@ -1,6 +1,6 @@
 import { Snowflake } from "discord.js";
 import schedule from "node-schedule";
-import { getAllSettingsDB, setSettingsDB } from "../database/settingsDB";
+import { getAllSettingsDB, setSettingsDB } from "../database/settingsDB.js";
 
 const settings: Map<Snowflake, Settings> = new Map();
 getAllSettingsDB().then((sets) =>

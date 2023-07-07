@@ -2,7 +2,7 @@ import {
   ChatInputGuildCommandInteraction,
   ExString,
   str2num,
-} from "../scripts/utility";
+} from "../scripts/utility.js";
 import moment from "moment";
 import {
   ActionRowBuilder,
@@ -16,7 +16,7 @@ import {
   ThreadChannel,
   VoiceChannel,
 } from "discord.js";
-import { setPlan, getPlans, deletePlan } from "../database/planDB";
+import { setPlan, getPlans, deletePlan } from "../database/planDB.js";
 import { scheduleJob } from "node-schedule";
 const plans: Collection<string, Plan> = new Collection();
 getPlans(plans);

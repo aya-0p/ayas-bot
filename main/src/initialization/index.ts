@@ -4,15 +4,15 @@ import {
   createAudioPlayer,
   joinVoiceChannel,
 } from "@discordjs/voice";
-import { voiceConnectionMap } from "../scripts/connection";
-import settings from "../scripts/settings";
-import * as log from "../scripts/log";
-import { env } from "../../../env";
-import { commandData } from "../setupCommands";
+import { voiceConnectionMap } from "../scripts/connection.js";
+import settings from "../scripts/settings.js";
+import * as log from "../scripts/log.js";
+import { env } from "../../../env/index.js";
+import { commandData } from "../setupCommands.js";
 import schedule from "node-schedule";
-import httpServer from "./httpServer";
-import checkAutoDelete from "./checkAutoDelete";
-import { initialize } from "../addons";
+import httpServer from "./httpServer.js";
+import checkAutoDelete from "./checkAutoDelete.js";
+import { initialize } from "../addons/index.js";
 export default async (client: Client<true>) => {
   //初期処理
   log.info(
@@ -31,12 +31,12 @@ export default async (client: Client<true>) => {
       });
     }
   });
-  await import("../scripts/checkConnections").catch(console.error);
-  await import("../events/interaction").catch(console.error);
-  await import("../events/message").catch(console.error);
-  await import("../scripts/clock").catch(console.error);
-  await import("../scripts/connection").catch(console.error);
-  await import("../database/statusDB").catch(console.error);
+  await import("../scripts/checkConnections.js").catch(console.error);
+  await import("../events/interaction.js").catch(console.error);
+  await import("../events/message.js").catch(console.error);
+  await import("../scripts/clock.js").catch(console.error);
+  await import("../scripts/connection.js").catch(console.error);
+  await import("../database/statusDB.js").catch(console.error);
   client.guilds.cache.forEach((guild) => {
     if (guild.members.me?.voice.channel instanceof VoiceChannel) {
       const voiceChannel = guild.members.me.voice.channel;

@@ -1,5 +1,5 @@
 import { Client } from "discord.js";
-import settings from "../scripts/settings";
+import settings from "../scripts/settings.js";
 import schedule from "node-schedule";
 import moment from "moment";
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import express from "express";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 import schedule from "node-schedule";
 export default () => {
   const app = express();

@@ -1,7 +1,7 @@
-import addonLog from "../addons";
-import getSettings from "../scripts/settings";
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
-import { env } from "../../../env";
+import addonLog from "../addons/index.js";
+import getSettings from "../scripts/settings.js";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
+import { env } from "../../../env/index.js";
 
 const speakersArray = env.main.voice;
 const speakers: Map<number, string> = new Map();

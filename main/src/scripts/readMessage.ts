@@ -1,14 +1,14 @@
-import { voiceConnectionMap, speak } from "./connection";
-import { ExString } from "./utility";
-import getSettings from "./settings";
+import { voiceConnectionMap, speak } from "./connection.js";
+import { ExString } from "./utility.js";
+import getSettings from "./settings.js";
 import * as fs from "fs-extra";
 import { Message } from "discord.js";
-import { getVoice } from "../database/voiceDB";
-import { tts } from "../audio/tts";
+import { getVoice } from "../database/voiceDB.js";
+import { tts } from "../audio/tts.js";
 import { Duplex } from "stream";
 import ffmpeg from "fluent-ffmpeg";
 import path from "node:path";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 
 const defaultDictionary: Dictionary = fs.readJSONSync(
   path.join(env.project.rootDirPath, "main/other/defaultdic.json")

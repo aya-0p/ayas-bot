@@ -1,10 +1,10 @@
-import client from "../server";
-import * as log from "../scripts/log";
-import getReply from "../scripts/reply";
-import { read } from "../scripts/readMessage";
+import client from "../server.js";
+import * as log from "../scripts/log.js";
+import getReply from "../scripts/reply.js";
+import { read } from "../scripts/readMessage.js";
 import { Message } from "discord.js";
-import { env } from "../../../env";
-import { ExString } from "../scripts/utility";
+import { env } from "../../../env/index.js";
+import { ExString } from "../scripts/utility.js";
 import axios from "axios";
 
 const serverReplys1: Array<string> = [

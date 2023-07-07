@@ -4,9 +4,9 @@ import {
   NoSubscriberBehavior,
 } from "@discordjs/voice";
 import { ChannelType, Guild, TextBasedChannel, VoiceChannel } from "discord.js";
-import { voiceConnectionMap, playNothing } from "../scripts/connection";
-import addonLog, { onVoiceConnectionEstablished } from "../addons";
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
+import { voiceConnectionMap, playNothing } from "../scripts/connection.js";
+import addonLog, { onVoiceConnectionEstablished } from "../addons/index.js";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 
 export default async (
   interaction: ChatInputGuildCommandInteraction

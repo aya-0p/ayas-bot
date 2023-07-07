@@ -1,16 +1,16 @@
 import { Snowflake } from "discord.js";
 import { readJSONSync, writeJSONSync } from "fs-extra";
-import client from "../server";
-import { voiceConnectionMap } from "../scripts/connection";
+import client from "../server.js";
+import { voiceConnectionMap } from "../scripts/connection.js";
 import schedule from "node-schedule";
 import moment from "moment";
-import { join } from "../commands/join";
+import { join } from "../commands/join.js";
 import {
   getVoiceChannel,
   getTextBasedChannel,
   runErrorableFunction,
-} from "../scripts/utility";
-import { env } from "../../../env";
+} from "../scripts/utility.js";
+import { env } from "../../../env/index.js";
 const databasePath = env.main.database.status;
 const database = runErrorableFunction<ServerStatus>(
   () => readJSONSync(databasePath),

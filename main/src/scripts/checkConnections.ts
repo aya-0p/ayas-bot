@@ -1,11 +1,11 @@
 import schedule from "node-schedule";
-import client from "../server";
-import { voiceConnectionMap, playNothing } from "./connection";
-import * as log from "./log";
-import addonLog from "../addons";
+import client from "../server.js";
+import { voiceConnectionMap, playNothing } from "./connection.js";
+import * as log from "./log.js";
+import addonLog from "../addons/index.js";
 import { VoiceConnectionStatus } from "@discordjs/voice";
 import { AuditLogEvent, Snowflake } from "discord.js";
-import { disconnect } from "../commands/disconnect";
+import { disconnect } from "../commands/disconnect.js";
 
 const reason = {
   0: "WebSocketClose",

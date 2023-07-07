@@ -1,7 +1,6 @@
-import { CommandInteraction, GuildMember } from "discord.js";
 import axios from "axios";
 import { APIEmbed } from "discord.js";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 
 /**
  * ## デバッグ用ログ

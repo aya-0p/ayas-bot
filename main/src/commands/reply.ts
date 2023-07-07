@@ -5,9 +5,9 @@ import {
   TextInputBuilder,
   TextInputStyle,
 } from "discord.js";
-import addonLog from "../addons";
-import getReply from "../scripts/reply";
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
+import addonLog from "../addons/index.js";
+import getReply from "../scripts/reply.js";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 
 export default (interaction: ChatInputGuildCommandInteraction) => {
   switch (interaction.options.getString("mode", true)) {

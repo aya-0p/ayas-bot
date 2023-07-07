@@ -1,8 +1,8 @@
 import { Snowflake } from "discord.js";
-import * as log from "../scripts/log";
-import addonLog from "../addons";
-import { voiceConnectionMap } from "../scripts/connection";
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
+import * as log from "../scripts/log.js";
+import addonLog from "../addons/index.js";
+import { voiceConnectionMap } from "../scripts/connection.js";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 
 export default (interaction: ChatInputGuildCommandInteraction): void => {
   if (voiceConnectionMap.has(interaction.guild.id)) {

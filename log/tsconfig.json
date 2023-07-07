@@ -10,7 +10,7 @@
     "sourceMap": true,
     "outDir": "./scripts",
     "rootDir": "./src",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "baseUrl": "src",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

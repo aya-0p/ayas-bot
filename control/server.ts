@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import schedule from "node-schedule";
 import { exec } from "node:child_process";
-import { env } from "../env";
+import { env } from "../env/index.js";
 const app = express();
 const port = env.project.ports.control;
 let log: boolean,

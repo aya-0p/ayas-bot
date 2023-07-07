@@ -1,22 +1,22 @@
-import client from "../server";
-import * as log from "../scripts/log";
+import client from "../server.js";
+import * as log from "../scripts/log.js";
 import {
   ChatInputCommandInteraction,
   DMChannel,
   GuildMember,
 } from "discord.js";
 
-import disconnect from "../commands/disconnect";
-import help from "../commands/help";
-import join from "../commands/join";
-import read from "../commands/read";
-import reply from "../commands/reply";
-import report from "../commands/report";
-import settings from "../commands/settings";
-import voice from "../commands/voice";
-import plan from "../commands/plan";
+import disconnect from "../commands/disconnect.js";
+import help from "../commands/help.js";
+import join from "../commands/join.js";
+import read from "../commands/read.js";
+import reply from "../commands/reply.js";
+import report from "../commands/report.js";
+import settings from "../commands/settings.js";
+import voice from "../commands/voice.js";
+import plan from "../commands/plan.js";
 
-import { ChatInputGuildCommandInteraction } from "../scripts/utility";
+import { ChatInputGuildCommandInteraction } from "../scripts/utility.js";
 
 client.on("interactionCreate", async (interaction) => {
   if (interaction.isChatInputCommand()) {

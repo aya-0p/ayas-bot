@@ -7,8 +7,8 @@ import {
   TextInputBuilder,
   TextInputStyle,
 } from "discord.js";
-import * as log from "../scripts/log";
-import addonLog from "../addons";
+import * as log from "../scripts/log.js";
+import addonLog from "../addons/index.js";
 
 export default (interaction: ChatInputCommandInteraction) => {
   if (!interaction.isChatInputCommand()) return;

@@ -1,5 +1,5 @@
 import sqlite from "sqlite3";
-import { env } from "../../../env";
+import { env } from "../../../env/index.js";
 const databasePath = env.main.database.voice;
 const db = new sqlite.Database(databasePath);
 export const setVoice = (
