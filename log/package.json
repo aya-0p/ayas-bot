@@ -1,6 +1,5 @@
 {
   "name": "ayas-bot_log",
-  "version": "7.0.0",
   "main": "scripts/server.js",
   "repository": {
     "type": "git",

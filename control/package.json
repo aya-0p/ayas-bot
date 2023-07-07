@@ -1,6 +1,5 @@
 {
   "name": "ayas-bot_control",
-  "version": "7.0.0",
   "main": "server.js",
   "repository": {
     "type": "git",
