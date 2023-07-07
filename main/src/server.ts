@@ -2,7 +2,7 @@ import { Client, Options, GatewayIntentBits } from "discord.js";
 import * as log from "./scripts/log.js";
 import { env } from "../../env/index.js";
 
-const client = new Client({
+export const client = new Client({
   intents: [
     GatewayIntentBits.DirectMessageReactions,
     GatewayIntentBits.DirectMessages,
@@ -23,7 +23,6 @@ const client = new Client({
   ],
   makeCache: Options.cacheEverything(),
 });
-export default client;
 
 import init from "./initialization/index.js";
 client.on("ready", init);

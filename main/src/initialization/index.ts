@@ -67,6 +67,6 @@ export default async (client: Client<true>) => {
       }
     }
   });
-  await initialize();
+  await initialize(client);
   checkAutoDelete(client);
 };

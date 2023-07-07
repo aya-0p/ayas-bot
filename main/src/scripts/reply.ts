@@ -1,5 +1,5 @@
 import { Snowflake } from "discord.js";
-import * as fs from "fs-extra";
+import fs from "fs-extra";
 import schedule from "node-schedule";
 import path from "node:path";
 import { env } from "../../../env/index.js";

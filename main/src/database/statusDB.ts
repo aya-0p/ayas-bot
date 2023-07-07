@@ -1,6 +1,6 @@
 import { Snowflake } from "discord.js";
-import { readJSONSync, writeJSONSync } from "fs-extra";
-import client from "../server.js";
+import fs from "fs-extra";
+import { client } from "../server.js";
 import { voiceConnectionMap } from "../scripts/connection.js";
 import schedule from "node-schedule";
 import moment from "moment";
@@ -11,6 +11,7 @@ import {
   runErrorableFunction,
 } from "../scripts/utility.js";
 import { env } from "../../../env/index.js";
+const { readJSONSync, writeJSONSync } = fs;
 const databasePath = env.main.database.status;
 const database = runErrorableFunction<ServerStatus>(
   () => readJSONSync(databasePath),

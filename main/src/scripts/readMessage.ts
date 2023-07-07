@@ -1,7 +1,7 @@
 import { voiceConnectionMap, speak } from "./connection.js";
 import { ExString } from "./utility.js";
 import getSettings from "./settings.js";
-import * as fs from "fs-extra";
+import fs from "fs-extra";
 import { Message } from "discord.js";
 import { getVoice } from "../database/voiceDB.js";
 import { tts } from "../audio/tts.js";

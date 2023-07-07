@@ -8,7 +8,7 @@ import {
   Message,
   Snowflake,
 } from "discord.js";
-import client from "../server.js";
+import { client } from "../server.js";
 
 export function str2num(str: string): number {
   const c1Str = str.replace(

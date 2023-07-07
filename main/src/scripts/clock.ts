@@ -1,6 +1,6 @@
 import schedule from "node-schedule";
 import getSettings from "./settings.js";
-import client from "../server.js";
+import { client } from "../server.js";
 import { read } from "./readMessage.js";
 import { getTextBasedChannel } from "./utility.js";
 
