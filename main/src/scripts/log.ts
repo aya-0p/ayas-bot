@@ -1,6 +1,7 @@
 import axios from "axios";
-import { APIEmbed } from "discord.js";
+import { APIEmbed, MessageCreateOptions } from "discord.js";
 import { env } from "../../../env/index.js";
+import moment from "moment";
 
 /**
  * ## デバッグ用ログ
@@ -71,11 +72,45 @@ const controlServer = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-const sendLog = (data: sendLogData) =>
-  new Promise<void>((resolve) => {
+export const sendLog = async (data: sendLogData, reply?: string) => {
+  const embedData: APIEmbed = {
+    title: data.title,
+    description: data.body,
+    footer: {
+      text: `${data.footer ? `${data.footer} | ` : ""}${moment(
+        data.date
+      ).format("YYYY-MM-DD HH:mm:ss")}`,
+    },
+    author: data.author,
+    color: data.color,
+    image: data.image
+      ? {
+          url: data.image.url,
+          proxy_url: data.image.proxy,
+        }
+      : undefined,
+    video: data.video
+      ? {
+          url: data.video.url,
+          proxy_url: data.video.proxy,
+        }
+      : undefined,
+    url: data.url,
+  };
+  const sendData: MessageCreateOptions & { id: string } = {
+    id: data.id,
+    embeds: [data.embed ?? embedData],
+    reply: reply
+      ? {
+          messageReference: reply,
+          failIfNotExists: false,
+        }
+      : undefined,
+  };
+  await new Promise<void>((resolve) => {
     if (!env.project.test)
       controlServer
-        .post("/log", data)
+        .post("/log", sendData)
         .then(() => {
           resolve();
         })
@@ -85,6 +120,7 @@ const sendLog = (data: sendLogData) =>
           resolve();
         });
   });
+};
 interface sendLogData {
   id: string;
   title?: string;
