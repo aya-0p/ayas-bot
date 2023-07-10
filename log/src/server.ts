@@ -6,9 +6,10 @@ import {
   GatewayIntentBits,
   Interaction,
   InteractionType,
+  MessageCreateOptions,
 } from "discord.js";
 import express from "express";
-import * as bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import moment from "moment";
 import schedule from "node-schedule";
 import axios from "axios";
@@ -43,21 +44,7 @@ app.get("/", (req_, res) => {
 });
 app.post("/log", (req, res) => {
   res.send("ok");
-  const requestBody: {
-    id: string;
-    title: string | undefined;
-    body: string | undefined;
-    footer: string | undefined;
-    date: string | undefined;
-    author:
-      | { name: string; icon_url: string; url: string | undefined }
-      | undefined;
-    embed: APIEmbed | undefined;
-    color: number | undefined;
-    image: { url: string; proxy: string } | undefined;
-    video: { url: string; proxy: string } | undefined;
-    url: string | undefined;
-  } = req.body;
+  const requestBody: MessageCreateOptions & { id: string } = req.body;
   const sendChannelId: string =
     receivedFromGuild.get(requestBody.id) ?? env.log.defaultChannel;
   const channel = client.channels.cache.get(sendChannelId);
@@ -65,48 +52,12 @@ app.post("/log", (req, res) => {
     console.error("Send Text Channel Not Found.");
     return;
   }
-  if (requestBody.embed) {
-    channel.send({
-      embeds: [requestBody.embed],
-    });
-  } else {
-    const sendEmbed: APIEmbed = {
-      author: {
-        name: requestBody.author?.name ?? client.user?.username ?? "?",
-        icon_url:
-          requestBody.author?.icon_url ?? client.user?.displayAvatarURL(),
-        url: requestBody.author?.url,
-      },
-      footer: {
-        text: `${requestBody.footer ?? ""} - ${moment(requestBody.date).format(
-          "YYYY-MM-DD HH:mm:ss"
-        )}`,
-      },
-    };
-    if (requestBody.title) sendEmbed.title = requestBody.title;
-    if (requestBody.body) sendEmbed.description = requestBody.body;
-    if (requestBody.color) sendEmbed.color = requestBody.color;
-    if (requestBody.image)
-      sendEmbed.image = {
-        url: requestBody.image.url,
-        proxy_url: requestBody.image.proxy,
-      };
-    if (requestBody.video)
-      sendEmbed.video = {
-        url: requestBody.video.url,
-        proxy_url: requestBody.video.proxy,
-      };
-    if (requestBody.url) sendEmbed.url = requestBody.url;
-
-    channel
-      .send({
-        embeds: [sendEmbed],
-      })
-      .catch((e) => {
-        console.error(e);
-        console.error(sendEmbed);
-      });
-  }
+  const sendData: MessageCreateOptions & { id?: string } = requestBody;
+  delete sendData.id
+  channel.send(sendData).catch((e) => {
+    console.error(e);
+    console.error(requestBody);
+  });
 });
 app.post("/mention", (req, res) => {
   const channel = client.channels.cache.get(env.log.mentionChannel);
