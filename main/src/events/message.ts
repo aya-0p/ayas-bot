@@ -178,7 +178,7 @@ const autoReply = (message: Message): void => {
         timestamp: msg.createdAt.toISOString(),
         author: {
           name:
-            message.member?.displayName ?? message.author.username ?? "不明",
+            message.member?.displayName ?? message.author.displayName,
           url: message.url,
           icon_url:
             message.member?.displayAvatarURL() ??

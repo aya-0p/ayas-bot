@@ -40,8 +40,8 @@ export default (interaction: ChatInputCommandInteraction) => {
       if (report) {
         const username = (() => {
           const member = interaction.member;
-          if (member instanceof GuildMember) return member.displayName;
-          return interaction.user.username;
+          if (member instanceof GuildMember) return `${member.displayName}(${interaction.user.username})`;
+          return `${interaction.user.displayName}(${interaction.user.username})`;
         })();
         const guild = interaction.guild;
         const guildName = guild?.name ?? "DM";
