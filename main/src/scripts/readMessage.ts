@@ -86,7 +86,7 @@ const generateText = (message: Message): Array<string> => {
     )
       return [];
     const Msg = new ExString(
-      `${message.member?.displayName ?? message.author.username}さん、${
+      `${message.member?.displayName ?? message.author.displayName}さん、${
         message.content
       }`
     ); //読み上げメッセージを設定
