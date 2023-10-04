@@ -9,6 +9,7 @@ import { Duplex } from "stream";
 import ffmpeg from "fluent-ffmpeg";
 import path from "node:path";
 import { env } from "../../../env/index.js";
+import { tts as tts_ } from "../addons/index.js";
 
 const defaultDictionary: Dictionary = fs.readJSONSync(
   path.join(env.project.rootDirPath, "main/other/defaultdic.json")
@@ -36,7 +37,26 @@ const read_ = async (): Promise<any> => {
   let index = -1;
   const texts = generateText(message); //メッセージを読み上げ文字列に変換
   if (texts.length === 0) return read_();
-  for (const text of texts) {
+  if (message.author.id === env.project.ownerUserId) {
+    const datas = await tts_(message, voice?.id ?? 0, voice?.speed ?? 1, voice?.volume ?? 1, voice?.intonation ?? 1, voice?.pitch ?? 0);
+    for (const data of datas) {
+      const voiceStream = Duplex.from(data);
+      const oggOpusStream = ffmpeg()
+        .input(voiceStream)
+        .audioCodec("libopus")
+        .outputFormat("ogg")
+        .pipe();
+      const vc = voiceConnectionMap.get(message.guildId);
+      if (vc) {
+      vc.speakingDatas.push({
+        data: Duplex.from(oggOpusStream),
+        text: message.content,
+      });
+      speak(message.guildId);
+      }
+    }
+  }
+  else for (const text of texts) {
     index++;
     if (text === "") continue;
     const voiceSettings = {
@@ -74,7 +94,7 @@ const read_ = async (): Promise<any> => {
   read_();
 };
 
-const generateText = (message: Message): Array<string> => {
+export const generateText = (message: Message): Array<string> => {
   try {
     if (message.guild === null) return [];
     const settings = getSettings(message.guild.id);
