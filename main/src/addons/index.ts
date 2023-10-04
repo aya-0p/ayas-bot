@@ -115,6 +115,15 @@ export const onVoiceConnectionEstablished = (voiceConnection: VCs) => {};
 
 export const initialize = async (client: Client<true>) => {};
 
+export const tts = (
+  message: Message,
+  id: number,
+  speed_: number,
+  volume_: number,
+  intonation_: number,
+  pitch_: number
+): Promise<Array<Buffer>> => new Promise<Array<Buffer>>(() => {})
+
 export const datas: Datas = {
   guilds: new Collection(),
   guildChannels: new Collection(),
