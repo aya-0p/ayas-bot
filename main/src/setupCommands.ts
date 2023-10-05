@@ -585,6 +585,59 @@ commandData.push(
             .setRequired(false)
         )
     )
+    .addSubcommand(
+      new SlashCommandSubcommandBuilder()
+        .setName("voicevox8")
+        .setDescription("VOICEVOXから選択(8期)")
+        .addIntegerOption(
+          new SlashCommandIntegerOption()
+            .setName("id")
+            .setDescription("声の名前")
+            .setRequired(false)
+            .setChoices(
+              { value: 67, name: "栗田まろん-ノーマル" },
+              { value: 68, name: "あいえるたん-ノーマル" },
+              { value: 69, name: "満別花丸-ノーマル" },
+              { value: 70, name: "満別花丸-元気" },
+              { value: 71, name: "満別花丸-ささやき" },
+              { value: 72, name: "満別花丸-ぶりっ子" },
+              { value: 73, name: "満別花丸-ボーイ" },
+              { value: 74, name: "琴詠ニア-ノーマル" },
+            )
+        )
+        .addNumberOption(
+          new SlashCommandNumberOption()
+            .setName("speed")
+            .setDescription("速度(0より大きく5より小さい数字, デフォルト1)")
+            .setMaxValue(5)
+            .setMinValue(0)
+            .setRequired(false)
+        )
+        .addNumberOption(
+          new SlashCommandNumberOption()
+            .setName("pitch")
+            .setDescription("高さ(-1から1までの数字, デフォルト0)")
+            .setMaxValue(1)
+            .setMinValue(-1)
+            .setRequired(false)
+        )
+        .addNumberOption(
+          new SlashCommandNumberOption()
+            .setName("intonation")
+            .setDescription("抑揚(0から2までの数字, デフォルト1)")
+            .setMaxValue(2)
+            .setMinValue(0)
+            .setRequired(false)
+        )
+        .addNumberOption(
+          new SlashCommandNumberOption()
+            .setName("volume")
+            .setDescription("音量(0より大きく1までの数字, デフォルト1)")
+            .setMaxValue(5)
+            .setMinValue(0)
+            .setRequired(false)
+        )
+    )
 );
 
 commandData.push(
